@@ -1,0 +1,31 @@
+import pyautogui
+import time
+
+# config
+largura_tela, altura_tela = pyautogui.size()
+centro_x = largura_tela / 2
+centro_y = altura_tela / 2
+
+
+def banana():
+    a = 0
+    pyautogui.press('win')
+    time.sleep(2)
+    pyautogui.write('banana')
+    time.sleep(1)
+    pyautogui.press('enter')
+    time.sleep(50)
+    while a < 100:
+        pyautogui.click(centro_x, centro_y)
+        pyautogui.rightClick(centro_x, centro_y)
+        a = a + 1
+    pyautogui.hotkey('alt', 'f4')
+
+
+def auto():
+    while True:
+        banana()
+        time.sleep(2 * 60 * 60)
+
+
+auto()
